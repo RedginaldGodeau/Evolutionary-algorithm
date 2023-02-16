@@ -15,10 +15,10 @@ La problématique est de trouver un mot ou une phrase et de faire le chemin le p
 
 ### debug [Mot / Phrase]
 
-Pour lancer le programme.
+    Pour lancer le programme.
 ### make 
 
-Pour compiler le programme.
+    Pour compiler le programme.
 
 ## Authors
 
