@@ -11,7 +11,6 @@ La problématique est de trouver un mot ou une phrase et de faire le chemin le p
 
 ## Documentation
 
-[Documentation]
 
 ### debug [Mot / Phrase]
 
