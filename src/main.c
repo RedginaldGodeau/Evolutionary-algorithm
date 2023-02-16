@@ -8,18 +8,13 @@ int main(int argc, char const *argv[])
     char *sentence;
     int sentence_len;
 
-    size_t i = 0, counter = 1, i3 = 0;
-
-    (void) population_list,(void) best_element,(void) sentence,(void) i,(void) i3,(void) counter;
+    size_t i = 0, counter = 1;
 
     if (argc <= 1)
         return (error_writer(0));
 
     sentence_len = strlen(argv[1]);
-    sentence = malloc(sizeof(char) * sentence_len);
-
-    if (!sentence)
-        return (error_writer(1));    
+    sentence = strdup(argv[1]);   
 
     population_list = malloc(sizeof(pop *) * MAX_POPULATION);
     if (!population_list)
@@ -28,21 +23,32 @@ int main(int argc, char const *argv[])
     if(create_list_pop(population_list, sentence_len, 1) != 1)
         return (error_writer(2));
 
-    for (; i3 < MAX_POPULATION; i3++)
-        printf("POP %d, %s\n", i3, population_list[i3]->str);
-
-
-    /*while (strstr(sentence, (*population_list)[0].str) == NULL)
+    while (strstr(sentence, best_element->str) == NULL)
     {
         clr();
         printf("Population Gen : %d", counter++);
-        create_list_pop(population_list, sentence_len);
+        if(create_list_pop(population_list, sentence_len, 0) != 1)
+            return (error_writer(2));
 
+        for (i = 0; i < MAX_POPULATION; i++)
+            population_list[i]->purcent = get_purcent (sentence, population_list[i]->str);
 
+        best_element = get_best_pop (population_list);
 
-    }*/
+        printf("BEST ELEMENT : %s\n (%d)\n", best_element->str, best_element->purcent);
+        for (i = 0; i < MAX_POPULATION; i++)
+        {
+            strcpy(population_list[i]->str, best_element->str);
+            population_list[i]->purcent = 0;
+
+            printf("NEW ELEMENT : %s\n (%d)\n", best_element->str, best_element->purcent);
+        }
+    }
     
+    printf("La phrase etait : %s\n", best_element->str);
 
+    pop_free(population_list);
+    free(sentence);
 
     return (EXIT_SUCCESS);
 }

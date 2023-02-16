@@ -22,6 +22,9 @@ int error_writer(int);
 pop *create_pop (char *, int);
 pop *combine_pop (pop *, pop *);
 int create_list_pop (pop **, int, int);
+int get_purcent (char *, char *);
+int pop_free (pop **);
 /* other */
 void get_random_str(char *, int, int);
+pop *get_best_pop (pop **);
 #endif

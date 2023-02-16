@@ -2,10 +2,8 @@
 
 void get_random_str(char *str, int str_len, int new)
 {
-    const char letters[] = " abcdefghijklmnopqrstuwxyzvABCDEFGHIJQLMNOPQRSTUWXYZV-!?.,;1234567890:+-/";
+    const char letters[] = " abcdefghijklmnopqrstuwxyzvABCDEFGHIJQLMNOPQRSTUWXYZV-!?.,;1234567890:+-/\n";
     size_t i = 0;
-
-    printf("{%d}", new);
 
     if (new)
         for (; i < (size_t) str_len; i++)
