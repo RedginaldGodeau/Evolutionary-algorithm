@@ -60,7 +60,6 @@ pop *get_best_pop (pop **list)
     pop * max = list[0];
     size_t i = 0;
 
-    printf("%d", max->purcent);
     for (; i < MAX_POPULATION; i++)
     {
         if (max->purcent < list[i]->purcent)

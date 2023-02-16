@@ -23,10 +23,10 @@ int main(int argc, char const *argv[])
     if(create_list_pop(population_list, sentence_len, 1) != 1)
         return (error_writer(2));
 
-    while (strstr(sentence, best_element->str) == NULL)
+    do
     {
         clr();
-        printf("Population Gen : %d", counter++);
+        printf("Population Gen : %d\n", counter++);
         if(create_list_pop(population_list, sentence_len, 0) != 1)
             return (error_writer(2));
 
@@ -35,15 +35,13 @@ int main(int argc, char const *argv[])
 
         best_element = get_best_pop (population_list);
 
-        printf("BEST ELEMENT : %s\n (%d)\n", best_element->str, best_element->purcent);
+        printf("BEST ELEMENT : %s\n ( %d )\n", best_element->str, best_element->purcent);
         for (i = 0; i < MAX_POPULATION; i++)
         {
             strcpy(population_list[i]->str, best_element->str);
             population_list[i]->purcent = 0;
-
-            printf("NEW ELEMENT : %s\n (%d)\n", best_element->str, best_element->purcent);
         }
-    }
+    } while (strstr(best_element->str, sentence) == NULL);
     
     printf("La phrase etait : %s\n", best_element->str);
 
