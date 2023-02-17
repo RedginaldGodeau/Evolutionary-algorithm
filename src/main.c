@@ -26,7 +26,7 @@ int main(int argc, char const *argv[])
     do
     {
         clr();
-        printf("Population Gen : %d\n", counter++);
+	printf("Population Gen : %ld\n", counter++);
         if(create_list_pop(population_list, sentence_len, 0) != 1)
             return (error_writer(2));
 
